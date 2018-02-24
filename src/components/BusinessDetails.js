@@ -16,9 +16,9 @@ class BusinessDetails extends Component {
     this.getDetails();
   }
 
+// getDetails makes a POST request to our local server and sets the state using those results.
   getDetails = (e) => {
-    const { id } = this.props.match.params;
-    console.log(id);
+    const { id } = this.props.match.params; // this grabs the ID off of the URL.
     axios.post(`http://localhost:3030/api/yelp/business/${id}`, { ...this.state })
       .then(result => {
         this.setState({
@@ -30,15 +30,12 @@ class BusinessDetails extends Component {
           phone: result.data.phone,
           location: result.data.location.toString(),
         })
-        console.log(result);
       })
   }
 
   render() {
     return (
       <div>
-        { console.log(this.state) }
-        Testing
         <p>{ this.state.name }</p>
         <p>{ this.state.url }</p>
         <p>{ this.state.price }</p>

@@ -21,12 +21,12 @@ const getBusinesses = (req, res) => {
       .catch(err => res.status(500).send(err));
 }
 
+//businessDetails makes a get request to the Yelp API and returns the business data. 
 const businessDetails = (req, res) => {
   const { id } = req.params;
   axios.get(`${baseBusinessUrl}/${id}`, config)
     .then(business => {
       res.status(200).send(business.data)
-      console.log(business);
     })
     .catch(err => res.status(500).send(err));
 }
