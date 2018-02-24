@@ -10,6 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/api/yelp', yelp.getBusinesses);
+app.post('/api/yelp/business/:id', yelp.businessDetails);
 
 const PORT = 3030;
-app.listen(PORT, console.log(`Server is listening on port ${PORT}`))
+app.listen(PORT, console.log(`Server is listening on port ${PORT}`));
