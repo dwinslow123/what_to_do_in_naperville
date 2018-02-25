@@ -13,7 +13,7 @@ const config = {
 // getBusinesses makes a get request to the Yelp API and returns a list of businesses. I've hard coded that the location is Naperville IL.
 const getBusinesses = (req, res) => {
   const { searchTerm } = req.body;
-  const limit = 50;
+  const limit = 25;
   axios.get(`${baseSearchUrl}?term=${searchTerm}&location=Naperville+IL`, config)    
       .then(businesses => {
         res.status(200).send(businesses.data.businesses)

@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Photobox from './Photobox';
+import '../css/styles.css';
 
 class BusinessDetails extends Component {
   state = {
     name: '',
-    url: '',
     price: '',
     rating: '',
     review_count: '',
     phone: '',
-    location: '',
+    photos: [],
+    location: [],
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getDetails();
   }
 
@@ -23,26 +25,33 @@ class BusinessDetails extends Component {
       .then(result => {
         this.setState({
           name: result.data.name,
-          url: result.data.url,
           price: result.data.price,
           rating: result.data.rating,
           review_count: result.data.review_count,
           phone: result.data.phone,
-          location: result.data.location.toString(),
+          photos: result.data.photos,
+          location: result.data.location.display_address
         })
       })
   }
 
   render() {
+    
+    const location = this.state.location.map((line, i) => <p key={ i }>{ line }</p>) ;
+
+    const photos = this.state.photos.map(photo => `${photo}`)
+
     return (
-      <div>
+      <div className="business-details">
         <p>{ this.state.name }</p>
-        <p>{ this.state.url }</p>
+        <Photobox photos={ photos } />
         <p>{ this.state.price }</p>
         <p>{ this.state.rating }</p>
         <p>{ this.state.review_count }</p>
         <p>{ this.state.phone }</p>
-        <p>{ this.state.location }</p>
+        <div className="address-block">
+          { location }
+        </div>
       </div>
     )
   }

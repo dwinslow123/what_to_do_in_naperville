@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/styles.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -27,25 +27,36 @@ class App extends Component {
   }
 
     render() {
-// declaring results here allows us to map over the array provided in state, and then pick out only the name and image from the data
+// declaring results here allows us to map over the array provided in state, and then pick out the information we want from the data
     const results = this.state.results.map((result, i) => (
-      <div className='result' key={ i }>
-        <Link to={`/business/${result.id}`}><h2>{ result.name }</h2></Link>
-        <img src={ result.image_url } alt="buisness images" />
+      <div className="results-list" key={ i }>
+        <div className="result">
+          <Link to={`/business/${result.id}`}><h2 className="result-name">{ result.name }</h2></Link>
+          <img className="result-photo" src={ result.image_url } alt="stock images" />
+            <div className="address-block">
+              { Object.values(result.location.display_address).map((line, i) => <p key={ i }>{ line }</p>) }
+            </div>
+        </div>
       </div>
     ));
   
     return (
-      <div className='app'>
-        <form onSubmit={ this.handleSubmit }>
-          <input
-            type="search"
-            placeholder="Search for a business!"
-            value={ this.state.searchTerm }
-            onChange={ this.handleInput }
-          />
-        </form>
-        { results }
+      <div className='main-page'>
+        <div className="search">
+          <h2>What is there to do in Naperville?</h2>
+          <form onSubmit={ this.handleSubmit }>
+            <p>Type in your favorite activity below and we'll show you!</p>
+            <input
+              type="search"
+              placeholder="e.g. pizza, water sports, stained glass"
+              value={ this.state.searchTerm }
+              onChange={ this.handleInput }
+            />
+          </form>
+        </div>
+        <div className="results">
+        { results.length === 0 ? <p className="results-text">Check out Naperville!</p> : results }
+        </div>
       </div>
     );
   }

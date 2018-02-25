@@ -1,0 +1,215 @@
+$link-color: #000000;
+$main-background-color: #FEFEFE;
+$mirage: #17252A;
+$paradiso: #2B7A78;
+$keppel: #3AAFA9;
+$swans-down: #DEF2F1;
+$header-footer-font: 'Mukta Malar';
+$main-text-font: 'Open Sans';
+$main-font-size: 16px;
+
+$mobile: "(max-width: 468px)";
+
+@mixin media($queryString) {
+  @media #{$queryString} {
+    @content;
+  }
+}
+
+/************************************************
+MAIN
+************************************************/
+
+html, #root, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-size: $main-font-size;
+  font-family: $main-text-font;
+  display: flex;
+  flex-direction: column;
+
+  *:focus {
+    outline: none;
+  }
+}
+
+
+/************************************************
+APP
+************************************************/
+
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}// App
+
+
+/************************************************
+SEARCH
+************************************************/
+
+.search {
+  width: 100%;
+  background-color: $mirage;
+  color: #FEFEFE;
+  height: auto;
+  padding-bottom: .5rem;
+  font-family: $header-footer-font;
+
+  h2 {
+    margin: .5rem 0;
+  }// search h2
+
+  p {
+    margin: .5rem 0;
+  }// search p
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      width: 40%;
+      text-align: center;
+      margin: 0 auto;
+    }// search form input
+  }// search form
+}// search
+
+
+/************************************************
+MAIN PAGE
+************************************************/
+
+.main-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .results {
+    width: 100%;
+    height: 85%;
+    background-image: url(/img/riverwalk_bridge.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: scroll;
+
+    .results-text {
+      color: #FEFEFE;
+      font-size: 2.5rem;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 11;
+    }// main-page results results-text
+  }// main-page results
+
+  .results-list {
+    height: 60%;
+    width: 45%;
+    margin: .5rem auto;
+    background-color: rgba(255,255,255, 0.5);
+
+    a {
+      color: $link-color;
+      text-decoration: none;
+    }// main-page results-list a
+  
+    .result {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      border: 1px solid rgba(0,0,0,0.0975);
+  
+      .result-name {
+        font-size: 1rem;
+        text-align: center;
+      }// main-page results-list result result-name
+  
+      .result-photo {
+        width: 60%;
+        height: 60%;
+        margin: 0 auto;
+        border: 1px solid black;
+      }// main-page results-list result result-photo
+
+      .address-block {
+        height: 30%;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+
+        p {
+          margin: 0;
+        }// main-page results-list result address-block p
+      }// main-page results-list result address-block
+    }// main-page results-list result
+  }// main-page results-list
+}// main-page
+
+
+/************************************************
+BUSINESS DETAILS
+************************************************/
+
+.business-details {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    position: relative;
+    width: 50%;
+    height: 50%;
+
+    .image {
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      transition: .5s ease;
+    }// business-details container image
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }// business-details container middle
+
+    .text {
+      color: #000000;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    }// business-details container text
+
+    &:hover {
+      .image {
+        opacity: 0.3;
+      }// business-details container hover image
+
+      .middle {
+        opacity: 1;
+      }// business-details container hover middle
+    }// business-details container hover
+  }// business-details container
+}// business-details
+
+
