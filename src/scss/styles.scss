@@ -1,5 +1,5 @@
 $link-color: #000000;
-$main-background-color: #FEFEFE;
+$main-background-color: #828A95;
 $mirage: #17252A;
 $paradiso: #2B7A78;
 $keppel: #3AAFA9;
@@ -93,7 +93,7 @@ MAIN PAGE
 
   .results {
     width: 100%;
-    height: 85%;
+    height: 100%;
     background-image: url(/img/riverwalk_bridge.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -163,53 +163,135 @@ MAIN PAGE
 BUSINESS DETAILS
 ************************************************/
 
-.business-details {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.container {
+  width: 98%;
+  height: 90%;
+  background-color: #FEFEFE;
 
-  .container {
-    position: relative;
-    width: 50%;
-    height: 50%;
-
-    .image {
-      opacity: 1;
-      width: 100%;
-      height: 100%;
-      transition: .5s ease;
-    }// business-details container image
-
-    .middle {
-      transition: .5s ease;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      text-align: center;
-    }// business-details container middle
-
-    .text {
-      color: #000000;
-      font-size: 1rem;
-      padding: 1rem 2rem;
-    }// business-details container text
+  button {
+    font-size: 1rem;
+    height: 5%;
+    background-color: #FEFEFE;
+    border: none;
 
     &:hover {
+      color: $paradiso;
+    }
+  }
+
+  .business-details {
+    width: 70%;
+    height: 95%;
+    margin: 0 auto;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+      position: relative;
+      width: 80%;
+      height: 100%;
+
       .image {
-        opacity: 0.3;
-      }// business-details container hover image
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        transition: .5s ease;
+      }// business-details container image
 
       .middle {
-        opacity: 1;
-      }// business-details container hover middle
-    }// business-details container hover
-  }// business-details container
-}// business-details
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+      }// business-details container middle
 
+      .text {
+        color: #000000;
+        font-size: 1rem;
+      }// business-details container text
 
+      &:hover {
+        .image {
+          opacity: 0.3;
+        }// business-details container hover image
+
+        .middle {
+          opacity: 1;
+        }// business-details container hover middle
+      }// business-details container hover
+    }// business-details container
+
+    .name {
+      font-size: 2.3rem;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .phone {
+      a {
+        text-decoration: none;
+        color: $link-color;
+
+        &:hover {
+          color: $keppel;
+        }
+      }
+    }
+
+    .photos {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .address-block {
+      height: 30%;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      margin-bottom: .75rem;
+
+      p {
+        margin: 0;
+      }// business-details address-block p
+    }// business-details address-block
+    
+    .hours-block {
+      height: auto;
+      width: 90%;
+      border: 1px solid black;
+      text-align: center;
+
+      h4 {
+        margin: 0;
+      }
+      
+      ul {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        list-style: none;
+        padding: 0 .5rem;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+          margin: .5rem;
+        }// container business-details hours-block ul li
+      }// container business-details hours-block ul
+    }// container business-details hours-block
+  }// container business-details
+}// container

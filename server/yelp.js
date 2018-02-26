@@ -14,7 +14,7 @@ const config = {
 const getBusinesses = (req, res) => {
   const { searchTerm } = req.body;
   const limit = 25;
-  axios.get(`${baseSearchUrl}?term=${searchTerm}&location=Naperville+IL`, config)    
+  axios.get(`${baseSearchUrl}?term=${searchTerm}&location=Naperville+IL&radius=8047`, config)    
       .then(businesses => {
         res.status(200).send(businesses.data.businesses)
       })

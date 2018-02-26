@@ -54,7 +54,7 @@ MAIN PAGE
   text-align: center; }
   .main-page .results {
     width: 100%;
-    height: 85%;
+    height: 100%;
     background-image: url(/img/riverwalk_bridge.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -104,36 +104,90 @@ MAIN PAGE
 /************************************************
 BUSINESS DETAILS
 ************************************************/
-.business-details {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-  .business-details .container {
-    position: relative;
-    width: 50%;
-    height: 50%; }
-    .business-details .container .image {
-      opacity: 1;
-      width: 100%;
+.container {
+  width: 98%;
+  height: 90%;
+  background-color: #FEFEFE; }
+  .container button {
+    font-size: 1rem;
+    height: 5%;
+    background-color: #FEFEFE;
+    border: none; }
+    .container button:hover {
+      color: #2B7A78; }
+  .container .business-details {
+    width: 70%;
+    height: 95%;
+    margin: 0 auto;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .container .business-details .container {
+      position: relative;
+      width: 80%;
+      height: 100%; }
+      .container .business-details .container .image {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        transition: .5s ease; }
+      .container .business-details .container .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center; }
+      .container .business-details .container .text {
+        color: #000000;
+        font-size: 1rem; }
+      .container .business-details .container:hover .image {
+        opacity: 0.3; }
+      .container .business-details .container:hover .middle {
+        opacity: 1; }
+    .container .business-details .name {
+      font-size: 2.3rem; }
+      .container .business-details .name p {
+        margin: 0; }
+    .container .business-details .phone a {
+      text-decoration: none;
+      color: #000000; }
+      .container .business-details .phone a:hover {
+        color: #3AAFA9; }
+    .container .business-details .photos {
+      width: 50%;
       height: 100%;
-      transition: .5s ease; }
-    .business-details .container .middle {
-      transition: .5s ease;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center; }
+    .container .business-details .address-block {
+      height: 30%;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      margin-bottom: .75rem; }
+      .container .business-details .address-block p {
+        margin: 0; }
+    .container .business-details .hours-block {
+      height: auto;
+      width: 90%;
+      border: 1px solid black;
       text-align: center; }
-    .business-details .container .text {
-      color: #000000;
-      font-size: 1rem;
-      padding: 1rem 2rem; }
-    .business-details .container:hover .image {
-      opacity: 0.3; }
-    .business-details .container:hover .middle {
-      opacity: 1; }
+      .container .business-details .hours-block h4 {
+        margin: 0; }
+      .container .business-details .hours-block ul {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        list-style: none;
+        padding: 0 .5rem;
+        display: flex;
+        justify-content: space-around; }
+        .container .business-details .hours-block ul li {
+          margin: .5rem; }

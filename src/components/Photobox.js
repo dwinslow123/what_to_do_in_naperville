@@ -18,6 +18,7 @@ class Photobox extends Component {
         <img
           src={ images[photoIndex] }
           className="image"
+          alt=""
           onClick={() => this.setState({ isOpen: true })}
         />
       <div className="middle">
