@@ -33,9 +33,10 @@ class App extends Component {
         <div className="result">
           <Link to={`/business/${result.id}`}><h2 className="result-name">{ result.name }</h2></Link>
           <img className="result-photo" src={ result.image_url } alt="stock images" />
-            <div className="address-block">
-              { Object.values(result.location.display_address).map((line, i) => <p key={ i }>{ line }</p>) }
-            </div>
+          <p>Price: { result.price }</p>
+          <div className="address-block">
+            { Object.values(result.location.display_address).map((line, i) => <p key={ i }>{ line }</p>) }
+          </div>
         </div>
       </div>
     ));
@@ -52,6 +53,9 @@ class App extends Component {
               value={ this.state.searchTerm }
               onChange={ this.handleInput }
             />
+            <button type="submit">
+              submit
+            </button>
           </form>
         </div>
         <div className="results">

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Photobox from './Photobox';
 import { Link } from 'react-router-dom';
+import { StarRating } from './StarRating';
 import '../css/styles.css';
 
 class BusinessDetails extends Component {
@@ -28,7 +29,7 @@ class BusinessDetails extends Component {
         this.setState({
           name: result.data.name,
           price: `Price: ${result.data.price}`,
-          rating: `Rating: ${result.data.rating} / 5`,
+          rating: result.data.rating,
           review_count: `Review Count: ${result.data.review_count}`,
           phone: result.data.phone,
           photos: result.data.photos,
@@ -66,7 +67,7 @@ class BusinessDetails extends Component {
 
     const hours = this.state.hours.map((day, i) => {
       return (
-        <div key={ i }>
+        <div className="day-of-the-week" key={ i }>
           <li>{ this.convertDays(day.day) }</li>
           <li>Open: { day.start.replace(/(\d{2})(\d{2})/, "$1:$2") }</li>
           <li>Close: { day.end.replace(/(\d{2})(\d{2})/, "$1:$2") }</li>
@@ -75,7 +76,7 @@ class BusinessDetails extends Component {
     });
 
     return (
-      <div className="container">
+      <div className="wrapper">
         <Link to="/">
           <button type="button">Back</button>
         </Link>
@@ -89,23 +90,27 @@ class BusinessDetails extends Component {
           <div className="photos">
             <Photobox photos={ photos } />
           </div>
-          <div className="price">
-            <p>{ this.state.price }</p>
-          </div>
-          <div className="rating">
-            <p>{ this.state.rating }</p>
-          </div>
-          <div className="reviews">
-            <p>{ this.state.review_count }</p>
-          </div>
-          <div className="phone">
-            <p>
-              <a href={ `tel:${ this.state.phone }` }>{ phone }</a>
-            </p>
-          </div>
-          <div className="hours-block">
-            <h4>Hours</h4>
-            <ul>{ hours }</ul>
+          <div className="details">
+            <div className="description">
+              <div className="rating">
+                <StarRating rating={ this.state.rating } />
+              </div>
+              <div className="price">
+                <p>{ this.state.price }</p>
+              </div>
+              <div className="reviews">
+                <p>{ this.state.review_count }</p>
+              </div>
+              <div className="phone">
+                <p>
+                  <a href={ `tel:${ this.state.phone }` }>{ phone }</a>
+                </p>
+              </div>
+            </div>
+            <div className="hours-block">
+              <h4>Hours</h4>
+              <ul>{ hours }</ul>
+            </div>
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ class Photobox extends Component {
           onClick={() => this.setState({ isOpen: true })}
         />
       <div className="middle">
-        <div className="text">Click for more!</div>
+        <div className="text">Click to see more</div>
       </div>
 
         { isOpen && (

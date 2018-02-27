@@ -6,6 +6,10 @@ const app = express();
 
 const yelp = require('./yelp');
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 app.use(cors());
 app.use(bodyParser.json());
 

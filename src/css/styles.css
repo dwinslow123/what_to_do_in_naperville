@@ -43,6 +43,9 @@ SEARCH
       width: 40%;
       text-align: center;
       margin: 0 auto; }
+  @media (max-width: 468px) {
+    .search {
+      width: 100%; } }
 
 /************************************************
 MAIN PAGE
@@ -84,10 +87,15 @@ MAIN PAGE
       border: 1px solid rgba(0, 0, 0, 0.0975); }
       .main-page .results-list .result .result-name {
         font-size: 1rem;
-        text-align: center; }
+        text-align: center;
+        transition: font-size .5s;
+        width: auto; }
+        .main-page .results-list .result .result-name:hover {
+          font-size: 1.1rem;
+          color: #2B7A78; }
       .main-page .results-list .result .result-photo {
-        width: 60%;
-        height: 60%;
+        width: 40%;
+        height: 50%;
         margin: 0 auto;
         border: 1px solid black; }
       .main-page .results-list .result .address-block {
@@ -100,40 +108,60 @@ MAIN PAGE
         align-content: center; }
         .main-page .results-list .result .address-block p {
           margin: 0; }
+  @media (max-width: 468px) {
+    .main-page .results .results-list {
+      width: 75%;
+      height: 50%; }
+      .main-page .results .results-list .address-block {
+        display: flex;
+        flex-flow: wrap; }
+        .main-page .results .results-list .address-block p {
+          margin: .25rem; }
+    .main-page .results .results-text {
+      font-size: 2.4rem; } }
 
 /************************************************
 BUSINESS DETAILS
 ************************************************/
-.container {
-  width: 98%;
-  height: 90%;
-  background-color: #FEFEFE; }
-  .container button {
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-image: url(/img/riverwalk_bridge.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  display: flex; }
+  .wrapper button {
     font-size: 1rem;
     height: 5%;
-    background-color: #FEFEFE;
-    border: none; }
-    .container button:hover {
-      color: #2B7A78; }
-  .container .business-details {
-    width: 70%;
-    height: 95%;
+    padding: 1rem;
+    margin-top: .75rem;
+    background-color: transparent;
+    border: none;
+    transition: font-size .5s; }
+    .wrapper button:hover {
+      font-size: 1.05rem; }
+  .wrapper a {
+    height: 5%; }
+  .wrapper .business-details {
+    width: 60%;
+    height: 100%;
     margin: 0 auto;
-    padding: .5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; }
-    .container .business-details .container {
+    align-items: center;
+    background-color: #FEFEFE; }
+    .wrapper .business-details .container {
       position: relative;
+      background-color: #FEFEFE;
       width: 80%;
       height: 100%; }
-      .container .business-details .container .image {
-        opacity: 1;
+      .wrapper .business-details .container .image {
         width: 100%;
         height: 100%;
         transition: .5s ease; }
-      .container .business-details .container .middle {
+      .wrapper .business-details .container .middle {
         transition: .5s ease;
         opacity: 0;
         position: absolute;
@@ -142,29 +170,59 @@ BUSINESS DETAILS
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         text-align: center; }
-      .container .business-details .container .text {
+      .wrapper .business-details .container .text {
         color: #000000;
         font-size: 1rem; }
-      .container .business-details .container:hover .image {
+      .wrapper .business-details .container:hover .image {
         opacity: 0.3; }
-      .container .business-details .container:hover .middle {
+      .wrapper .business-details .container:hover .middle {
         opacity: 1; }
-    .container .business-details .name {
-      font-size: 2.3rem; }
-      .container .business-details .name p {
+    .wrapper .business-details .name {
+      font-size: 2.3rem;
+      margin-top: 1rem; }
+      .wrapper .business-details .name p {
         margin: 0; }
-    .container .business-details .phone a {
+    .wrapper .business-details .details {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      height: 25%; }
+      .wrapper .business-details .details .description {
+        width: 45%; }
+      .wrapper .business-details .details .hours-block {
+        height: auto;
+        width: 60%;
+        border: 1px solid black;
+        text-align: center;
+        margin-top: 1.45rem; }
+        .wrapper .business-details .details .hours-block h4 {
+          margin: 0; }
+        .wrapper .business-details .details .hours-block ul {
+          margin: 0;
+          width: 100%;
+          height: auto;
+          list-style: none;
+          padding: 0;
+          display: flex;
+          justify-content: space-around; }
+          .wrapper .business-details .details .hours-block ul li {
+            margin: .5rem; }
+        .wrapper .business-details .details .hours-block .day-of-the-week {
+          width: 12%;
+          font-size: .8rem;
+          margin: 0.25rem; }
+    .wrapper .business-details .phone a {
       text-decoration: none;
       color: #000000; }
-      .container .business-details .phone a:hover {
+      .wrapper .business-details .phone a:hover {
         color: #3AAFA9; }
-    .container .business-details .photos {
+    .wrapper .business-details .photos {
       width: 50%;
-      height: 100%;
+      height: 30%;
       display: flex;
       justify-content: center; }
-    .container .business-details .address-block {
-      height: 30%;
+    .wrapper .business-details .address-block {
+      height: 10%;
       width: 100%;
       text-align: center;
       display: flex;
@@ -172,22 +230,37 @@ BUSINESS DETAILS
       justify-content: center;
       align-content: center;
       margin-bottom: .75rem; }
-      .container .business-details .address-block p {
+      .wrapper .business-details .address-block p {
         margin: 0; }
-    .container .business-details .hours-block {
-      height: auto;
-      width: 90%;
-      border: 1px solid black;
-      text-align: center; }
-      .container .business-details .hours-block h4 {
-        margin: 0; }
-      .container .business-details .hours-block ul {
-        margin: 0;
+  @media (max-width: 468px) {
+    .wrapper {
+      display: flex;
+      justify-content: center; }
+      .wrapper a {
+        height: 5%; }
+      .wrapper .business-details .name {
+        font-size: 1.4rem;
+        text-align: center; }
+      .wrapper .business-details .photos {
+        width: 100%; }
+        .wrapper .business-details .photos .container {
+          width: 90%; }
+      .wrapper .business-details .details {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         height: auto;
-        list-style: none;
-        padding: 0 .5rem;
-        display: flex;
-        justify-content: space-around; }
-        .container .business-details .hours-block ul li {
-          margin: .5rem; }
+        overflow: scroll; }
+        .wrapper .business-details .details .hours-block {
+          width: 100%;
+          height: auto;
+          border: none; }
+          .wrapper .business-details .details .hours-block ul {
+            display: flex;
+            flex-wrap: wrap;
+            height: auto;
+            overflow: scroll; }
+            .wrapper .business-details .details .hours-block ul .day-of-the-week {
+              width: 100%;
+              align-self: center;
+              height: auto; } }
