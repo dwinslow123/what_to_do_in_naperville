@@ -18,12 +18,15 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3030/api/yelp/', { ...this.state })
-      .then(results => {
+      .then((results) => {
         this.setState({
           searchTerm: '',
           results: results.data
         })
       })
+      .catch((res, err) => {
+        res.status(500).json(err);
+      });
   }
 
     render() {

@@ -16,9 +16,12 @@ const getBusinesses = (req, res) => {
   const limit = 25;
   axios.get(`${baseSearchUrl}?term=${searchTerm}&location=Naperville+IL&radius=8047`, config)    
       .then(businesses => {
-        res.status(200).send(businesses.data.businesses)
-      })
-      .catch(err => res.status(500).send(err));
+        res.status(200).json(businesses.data.businesses)
+      },
+      (err) => {
+        res.status(500).json(err)
+      }
+    )
 }
 
 //businessDetails makes a get request to the Yelp API and returns the business data. 
@@ -26,9 +29,8 @@ const businessDetails = (req, res) => {
   const { id } = req.params;
   axios.get(`${baseBusinessUrl}/${id}`, config)
     .then(business => {
-      res.status(200).send(business.data)
+      res.status(200).json(business.data)
     })
-    .catch(err => res.status(500).send(err));
 }
 
 module.exports = {

@@ -1,24 +1,21 @@
 /************************************************
 MAIN
 ************************************************/
-html, #root, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  font-family: "Open Sans";
-  display: flex;
-  flex-direction: column; }
-  html *:focus, #root *:focus, body *:focus {
-    outline: none; }
+html {
+  overflow: hidden; }
 
-/************************************************
-APP
-************************************************/
-.App {
+body {
+  margin: 0;
+  box-sizing: border-box; }
+
+html, body, #root, .App {
+  margin: 0;
   height: 100%;
-  display: flex;
-  flex-direction: column; }
+  min-width: 100%;
+  font-size: 16px;
+  font-family: "Open Sans"; }
+  html *:focus, body *:focus, #root *:focus, .App *:focus {
+    outline: none; }
 
 /************************************************
 SEARCH
@@ -136,7 +133,7 @@ BUSINESS DETAILS
     height: 5%;
     padding: 1rem;
     margin-top: .75rem;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0);
     border: none;
     transition: font-size .5s; }
     .wrapper button:hover {
@@ -145,7 +142,7 @@ BUSINESS DETAILS
     height: 5%; }
   .wrapper .business-details {
     width: 60%;
-    height: 100%;
+    min-height: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -186,9 +183,7 @@ BUSINESS DETAILS
       display: flex;
       align-content: center;
       align-items: center;
-      height: 25%; }
-      .wrapper .business-details .details .description {
-        width: 45%; }
+      height: 40%; }
       .wrapper .business-details .details .hours-block {
         height: auto;
         width: 60%;
@@ -249,8 +244,11 @@ BUSINESS DETAILS
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: auto;
+        height: 40%;
         overflow: scroll; }
+        .wrapper .business-details .details .rating {
+          display: flex;
+          flex-direction: row; }
         .wrapper .business-details .details .hours-block {
           width: 100%;
           height: auto;

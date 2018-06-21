@@ -20,31 +20,26 @@ $mobile: "(max-width: 468px)";
 MAIN
 ************************************************/
 
-html, #root, body {
-  height: 100%;
-  width: 100%;
+html {
+  overflow: hidden;
+}
+
+body {
   margin: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root, .App {
+  margin: 0;
+  height: 100%;
+  min-width: 100%;
   font-size: $main-font-size;
   font-family: $main-text-font;
-  display: flex;
-  flex-direction: column;
 
   *:focus {
     outline: none;
   }
 }
-
-
-/************************************************
-APP
-************************************************/
-
-.App {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}// App
-
 
 /************************************************
 SEARCH
@@ -226,7 +221,7 @@ BUSINESS DETAILS
 
   .business-details {
     width: 60%;
-    height: 100%;
+    min-height: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -285,11 +280,7 @@ BUSINESS DETAILS
       display: flex;
       align-content: center;
       align-items: center;
-      height: 25%;
-
-      .description {
-        width: 45%
-      }
+      height: 40%;
 
       .hours-block {
         height: auto;
@@ -385,8 +376,13 @@ BUSINESS DETAILS
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: auto;
+        height: 40%;
         overflow: scroll;
+
+        .rating {
+          display: flex;
+          flex-direction: row;
+        }
 
         .hours-block {
           width: 100%;

@@ -14,7 +14,6 @@ class BusinessDetails extends Component {
     phone: '',
     photos: [],
     location: [],
-    hours: [],
   }
 
   componentDidMount() {
@@ -34,46 +33,14 @@ class BusinessDetails extends Component {
           phone: result.data.phone,
           photos: result.data.photos,
           location: result.data.location.display_address,
-          hours: result.data.hours[0].open,
         })
       })
-  }
-
-  convertDays = (day) => {
-    switch (day) {
-      case 0:
-        return 'Monday';
-      case 1:
-        return 'Tuesday';
-      case 2:
-        return 'Wednesday';
-      case 3:
-        return 'Thursday';
-      case 4:
-        return 'Friday';
-      case 5:
-        return 'Saturday';
-      case 6:
-        return 'Sunday';
-      default:
-        return day;
-    }
   }
 
   render() {  
     const location = this.state.location.map((line, i) => <p key={ i }>{ line }</p>);
     const photos = this.state.photos.map(photo => `${photo}`);
     const phone = this.state.phone.substr(2).replace(/(\d{3})(\d{3})(\d{4})/, "Phone: ($1) $2-$3");// removes the +1 and formats the numbers
-
-    const hours = this.state.hours.map((day, i) => {
-      return (
-        <div className="day-of-the-week" key={ i }>
-          <li>{ this.convertDays(day.day) }</li>
-          <li>Open: { day.start.replace(/(\d{2})(\d{2})/, "$1:$2") }</li>
-          <li>Close: { day.end.replace(/(\d{2})(\d{2})/, "$1:$2") }</li>
-        </div>
-      )
-    });
 
     return (
       <div className="wrapper">
@@ -91,26 +58,20 @@ class BusinessDetails extends Component {
             <Photobox photos={ photos } />
           </div>
           <div className="details">
-            <div className="description">
               <div className="rating">
                 <StarRating rating={ this.state.rating } />
+                <div className="reviews">
+                <p>{ this.state.review_count }</p>
+              </div>
               </div>
               <div className="price">
                 <p>{ this.state.price }</p>
-              </div>
-              <div className="reviews">
-                <p>{ this.state.review_count }</p>
               </div>
               <div className="phone">
                 <p>
                   <a href={ `tel:${ this.state.phone }` }>{ phone }</a>
                 </p>
               </div>
-            </div>
-            <div className="hours-block">
-              <h4>Hours</h4>
-              <ul>{ hours }</ul>
-            </div>
           </div>
         </div>
       </div>
