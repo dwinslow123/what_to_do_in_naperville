@@ -3,6 +3,7 @@ import axios from 'axios';
 import Photobox from './Photobox';
 import { Link } from 'react-router-dom';
 import { StarRating } from './StarRating';
+import DetailsBox from './DetailsBox';
 import '../css/styles.css';
 
 class BusinessDetails extends Component {
@@ -57,22 +58,10 @@ class BusinessDetails extends Component {
           <div className="photos">
             <Photobox photos={ photos } />
           </div>
-          <div className="details">
-              <div className="rating">
-                <StarRating rating={ this.state.rating } />
-                <div className="reviews">
-                <p>{ this.state.review_count }</p>
-              </div>
-              </div>
-              <div className="price">
-                <p>{ this.state.price }</p>
-              </div>
-              <div className="phone">
-                <p>
-                  <a href={ `tel:${ this.state.phone }` }>{ phone }</a>
-                </p>
-              </div>
-          </div>
+          <DetailsBox
+            phone={ this.state.phone }
+            rating={ this.state.rating }
+          />
         </div>
       </div>
     )
