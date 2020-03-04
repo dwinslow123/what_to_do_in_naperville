@@ -8,14 +8,14 @@
     "cors": "^2.8.4",
     "dotenv": "^5.0.0",
     "express": "^4.16.2",
+    "main": "App.js",
     "node-sass": "^4.9.0",
-    "nodemon": "^1.15.1",
+    "nodemon": "^1.19.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-image-lightbox": "^4.5.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "main": "App.js"
+    "react-scripts": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
