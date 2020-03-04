@@ -24,6 +24,6 @@
     "scss": "node-sass --watch src/scss -o src/css"
   },
   "engines": {
-    "node": "13.3
+    "node": "13.3"
   }
 }
