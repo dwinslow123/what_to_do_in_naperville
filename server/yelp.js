@@ -1,8 +1,8 @@
 require('dotenv').config();
 const axios = require('axios')
 
-const baseSearchUrl = 'https://api.yelp.com/v3/businesses/search';
-const baseBusinessUrl = 'https://api.yelp.com/v3/businesses';
+const baseSearchUrl = process.env.baseSearchUrl;
+const baseBusinessUrl = process.env.baseBusinessUrl;
 const config = { 
   headers: {
     'Authorization': `Bearer ${process.env.YELP_ACCESS_TOKEN}`,
