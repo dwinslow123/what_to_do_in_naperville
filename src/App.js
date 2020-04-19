@@ -24,7 +24,7 @@ class App extends Component {
           results: results.data
         })
       })
-      .catch((res, err) => {
+      .catch((req, res, err) => {
         res.status(500).json(err);
       });
   }
