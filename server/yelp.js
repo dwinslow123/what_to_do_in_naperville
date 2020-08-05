@@ -6,7 +6,8 @@ const baseBusinessUrl = process.env.baseBusinessUrl;
 const config = { 
   headers: {
     'Authorization': `Bearer ${process.env.YELP_ACCESS_TOKEN}`,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
   } 
 }
 

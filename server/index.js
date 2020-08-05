@@ -16,5 +16,9 @@ app.use(bodyParser.json());
 app.post('/api/yelp', yelp.getBusinesses);
 app.post('/api/yelp/business/:id', yelp.businessDetails);
 
+app.get('*', (req, res ) => {
+  res.sendFile(path.join(`{__dirname}/client/build/index.html`));
+});
+
 const PORT = process.env.PORT || 3030;
 app.listen(PORT, console.log(`Server is listening on port ${PORT}`));
