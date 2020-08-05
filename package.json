@@ -22,7 +22,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "scss": "node-sass --watch src/scss -o src/css",
-    "heroku-postbuild": "yarn && yarn run build"
+    "heroku-postbuild": "yarn run build"
   },
   "engines": {
     "node": "13.3"
