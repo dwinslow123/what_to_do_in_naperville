@@ -17,7 +17,7 @@ class App extends Component {
 // handleSubmit first stops the form from refreshing, and then sends a post request to the backend with an array created off of this.state, and then sets the state using those results. 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://plaidypus-intro.herokuapp.com/api/yelp/' || 'http://localhost:3030/api/yelp', { ...this.state })
+    axios.post('http://localhost:3030/api/yelp', { ...this.state })
       .then((results) => {
         this.setState({
           searchTerm: '',
